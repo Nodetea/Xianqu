@@ -70,6 +70,11 @@ namespace Xianqu.Web.Models
         public string Email { get; set; }
 
         [Required]
+        [StringLength(30,ErrorMessage ="此项目不可为空！")]
+        [Display(Name ="用户名")]
+        public string UserName { get; set; }
+        
+        [Required]
         [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "密码")]

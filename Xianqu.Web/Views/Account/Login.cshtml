@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "登录";
 }
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
 
 <h2>@ViewBag.Title。</h2>
 <div class="row">
@@ -11,7 +14,6 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>使用本地帐户登录。</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">

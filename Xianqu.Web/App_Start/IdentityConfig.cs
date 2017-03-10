@@ -57,7 +57,7 @@ namespace Xianqu.Web
                 RequireNonLetterOrDigit = true,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = false,
             };
 
             // 配置用户锁定默认值

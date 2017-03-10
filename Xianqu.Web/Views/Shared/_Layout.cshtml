@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title 闲趣-交换惊喜</title>
     @Styles.Render("~/Content/css")
@@ -24,17 +23,15 @@
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index","Home")"><span class="glyphicon glyphicon-home"></span> 主页</a></li>
                     <li><a href="@Url.Action("About","Home")"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
-                    <li>@Html.ActionLink("显示所有用户","")</li>
-                    <li class="navbar-form" role="search">
+                    <li class="navbar-form navbar-left" role="search">
                         <div class="input-group">
                             <input type="search" class="form-control" placeholder="Search" />
                             <span class="input-group-btn">
-                                <button class="form-control btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                                <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
                         </div>
                     </li>
                 </ul>
-                
                     @Html.Partial("_LoginPartial")
             </div>
         </div>
