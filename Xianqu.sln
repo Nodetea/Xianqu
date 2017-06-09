@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xianqu.Web", "Xianqu.Web\Xi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xianqu.Web.Tests", "Xianqu.Web.Tests\Xianqu.Web.Tests.csproj", "{CF88321C-BD9A-421E-A38A-0A94970FC3B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xianqu.Models", "Xianqu.Models\Xianqu.Models.csproj", "{44FCB79F-21DD-4132-A4BF-D2CD78FD5DDB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{CF88321C-BD9A-421E-A38A-0A94970FC3B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF88321C-BD9A-421E-A38A-0A94970FC3B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF88321C-BD9A-421E-A38A-0A94970FC3B3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44FCB79F-21DD-4132-A4BF-D2CD78FD5DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44FCB79F-21DD-4132-A4BF-D2CD78FD5DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44FCB79F-21DD-4132-A4BF-D2CD78FD5DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44FCB79F-21DD-4132-A4BF-D2CD78FD5DDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

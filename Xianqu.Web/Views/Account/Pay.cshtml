@@ -1,0 +1,52 @@
+﻿@model Xianqu.Web.Models.PayViewModel
+@{
+    ViewBag.Title = "Pay";
+}
+
+<h2 class="well well-sm">Pay</h2>
+<hr />
+<br />
+
+    <div class="jumbotron">
+        <h1>注意：</h1>
+        <p>公共场合下请留心自己的密码安全！</p>
+    </div>
+
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="pull-right">订单编号：0ab6f875-e8dd-44d3-a3b4-41c70657be50</span>
+            <span>确认支付</span>
+            <span>&nbsp;&nbsp;下单时间：2017-05-25 17:56</span>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>&nbsp;&nbsp;&nbsp;</th>
+                        <th>商品名</th>
+                        <th>商家</th>
+                        <th>商品数量</th>
+                        <th>支付金额</th>
+                        <th>账户余额情况</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td><img src="~/Resources/57eb816bN0b9d96f3.jpg" alt="图片" /></td>
+                        <td>C#入门经典</td>                         
+                        <td>汤佳杰</td>
+                        <td>2</td>
+                        <td>RMB 120</td>
+                        <td>充足</td>
+                    </tr>
+            </table>
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="btn btn-warning pull-right">确认支付</button>
+            输入支付密码：@Html.PasswordFor(model => model.PayPassword)
+        </div>
+    </div>
+
+</div>
+    
+

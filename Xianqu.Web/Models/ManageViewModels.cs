@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -83,4 +84,35 @@ namespace Xianqu.Web.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+
+    public class PersonalProfileViewModel
+    {
+        [Required]
+        [Display(Name ="用户名")]
+        public string UserName { get; set; }
+
+        [Display(Name ="性别")]
+        public string UserSex { get; set; }
+
+        [Display(Name ="出生日期")]
+        public DateTime? BirthDate { get; set; }
+
+        [Display(Name ="邮箱")]
+        [EmailAddress]
+        public string Email { get; set; } 
+    }
+
+    public class ShipViewModel
+    {
+        [Display(Name = "收货地址")]
+        public string ShippingAddress { get; set; }
+
+        [Display(Name = "联系电话")]
+        public string CustomerPhone { get; set; }
+    }
+
+   
+    
+
+
 }

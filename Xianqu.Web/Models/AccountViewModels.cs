@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Xianqu.Web.Models
@@ -49,9 +50,8 @@ namespace Xianqu.Web.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "电子邮件")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "用户名")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -70,6 +70,10 @@ namespace Xianqu.Web.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name ="用户名")]
+        public string UserName { get; set; }
+        
+        [Required]
         [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "密码")]
@@ -79,6 +83,9 @@ namespace Xianqu.Web.Models
         [Display(Name = "确认密码")]
         [Compare("Password", ErrorMessage = "密码和确认密码不匹配。")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string UserRole { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -109,4 +116,26 @@ namespace Xianqu.Web.Models
         [Display(Name = "电子邮件")]
         public string Email { get; set; }
     }
+
+   public class PayViewModel
+    {
+        [Required]
+        [Display(Name ="支付方")]
+        public string CustomerName { get; set; }
+
+        [Required]
+        [Display(Name="收款方")]
+        public string SellerName { get; set; }
+
+        [Required]
+        [Display(Name="支付密码")]
+        public string PayPassword { get; set; }
+
+        [Required]
+        [Display(Name ="支付金额")]
+        public decimal Money { get; set; }
+    }
+
+        
+    
 }
