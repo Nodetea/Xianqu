@@ -1,0 +1,55 @@
+﻿@model Xianqu.Web.Models.CommentViewModel
+@{
+    ViewBag.Title = "Comment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="well well-sm">用户评价</h2>
+
+<div class="container">
+    <h3 class="well well-sm">给此次交易打分</h3>
+    <div id="star1" data-path="../Resources">商品质量：&nbsp;</div>
+    <div id="star2" data-path="../Resources">卖家服务：&nbsp;</div>
+    <div id="star3" data-path="../Resources">综合评价：&nbsp;</div>
+    <hr />
+    <h3 class="well well-sm">评价该商品</h3>
+    <div id="Textdiv">
+        <p>请输入内容...</p>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-primary pull-right">@Html.ActionLink("提交","CommentSucceed","WareManage")</button>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $('#star1').raty({
+            number: 5,
+            path: function () { return this.getAttribute('data-path') },
+            click: function (score, evt) {
+                alert('ID: ' + this.id + "\nscore: " + score+"\nevent： "+evt);
+            }
+        });
+        $('#star2').raty({
+            number: 5,
+            path: function () { return this.getAttribute('data-path') },
+            click: function (score, evt) {
+                alert('ID: ' + this.id + "\nscore: " + score + "\nevent： " + evt);
+            }
+        });
+        $('#star3').raty({
+            number: 5,
+            path: function () { return this.getAttribute('data-path') },
+            click: function (score, evt) {
+                alert('ID: ' + this.id + "\nscore: " + score + "\nevent： " + evt);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        // 获取元素
+        var div = document.getElementById('Textdiv');
+        // 生成编辑器
+        var editor = new wangEditor(div);
+        editor.create();
+    </script>
+}
+

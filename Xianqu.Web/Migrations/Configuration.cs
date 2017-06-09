@@ -4,7 +4,7 @@ namespace Xianqu.Web.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
+    using Xianqu.Web.Models;
     internal sealed class Configuration : DbMigrationsConfiguration<Xianqu.Web.Models.ApplicationDbContext>
     {
         public Configuration()
@@ -27,6 +27,10 @@ namespace Xianqu.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.UserRoles.AddOrUpdate(x => x.Id,
+                new ApplicationRole() { Id = "1", Name = "用户" },
+                new ApplicationRole() { Id="2",Name="商家"}
+                );
         }
     }
 }

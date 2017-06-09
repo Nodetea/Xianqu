@@ -15,6 +15,7 @@ namespace Xianqu.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager;
 
         public ManageController()
         {
@@ -48,6 +49,44 @@ namespace Xianqu.Web.Controllers
             {
                 _userManager = value;
             }
+        }
+
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
+        }
+
+        //
+        //Get /Manage/Index/PersonalProfile
+        public ActionResult PersonalProfile()
+        {
+            var model = new PersonalProfileViewModel();
+            var CurrectUser = UserManager.FindByName(User.Identity.GetUserName());
+            model.UserName = CurrectUser.UserName;
+            model.UserSex = CurrectUser.UserSex;
+            model.Email = CurrectUser.Email;
+            model.BirthDate = CurrectUser.BirthDate;
+            if (model.UserSex == null)
+                model.UserSex = "保密".ToString();
+            return View(model);
+        }
+
+        public ActionResult PersonalSecurity()
+        {
+            return View();
+        }
+
+        public ActionResult ShipManage()
+        {
+            return View();
+
         }
 
         //
@@ -321,6 +360,10 @@ namespace Xianqu.Web.Controllers
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
+
+       
+
+        
 
         protected override void Dispose(bool disposing)
         {

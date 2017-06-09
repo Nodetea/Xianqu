@@ -35,6 +35,8 @@ namespace Xianqu.Web.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        UserSex = c.String(maxLength: 10),
+                        BirthDate = c.DateTime(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -75,6 +77,17 @@ namespace Xianqu.Web.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.Goods",
+                c => new
+                    {
+                        ID = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 80),
+                        Category = c.String(nullable: false),
+                        Producer = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
         }
         
         public override void Down()
@@ -89,6 +102,7 @@ namespace Xianqu.Web.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropTable("dbo.Goods");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");

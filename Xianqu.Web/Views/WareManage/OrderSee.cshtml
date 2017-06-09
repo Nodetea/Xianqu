@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "OrderSee";
+}
+<h2>我的订单</h2>
+<div class="row">
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default ">全部</button>
+        <button type="button" class="btn btn-default active ">待收货</button>
+        <button type="button" class="btn btn-default active">已收货</button>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+           <p>订单编号:&nbsp;<span>0ab6f875-e8dd-44d3-a3b4-41c70657be50</span>&nbsp;&nbsp;&nbsp;订单日期：&nbsp;<span>2017-05-25 17:56</span></p>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>&nbsp;&nbsp;&nbsp;</th>
+                        <th>商品名</th>
+                        <th>卖家</th>
+                        <th>数量</th>
+                        <th>订单状态</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><img src="~/Resources/57eb816bN0b9d96f3.jpg" alt="订单商品" /></td>
+                    <td>C#入门经典</td>
+                    <td>汤佳杰</td>
+                    <td>2</td>
+                    <td>未完成</td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer">
+            <p>
+                <button type="button" class="btn btn-warning pull-right ">@Html.ActionLink("确认交易","Pay","Manage")</button>
+                <span>金额：RMB 120</span>
+            </p>
+        </div>
+    </div>
+        
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <p>订单编号:&nbsp;<span>8f7b6b99-e6f4-457d-aae2-1d1895709d6a</span>&nbsp;&nbsp;&nbsp;订单日期：&nbsp;<span>2017-04-22 01:46</span></p>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>&nbsp;&nbsp;&nbsp;</th>
+                        <th>商品名</th>
+                        <th>卖家</th>
+                        <th>数量</th>
+                        <th>订单状态</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><img src="~/Resources/59080db2N7ae9168e.jpg" alt="订单商品" /></td>
+                    <td>罗技G102游戏鼠标</td>
+                    <td>宋岱松</td>
+                    <td>1</td>
+                    <td>已完成</td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer">
+            <p>
+                <span>金额：RMB 59</span>
+            </p>
+        </div>
+    </div>
+        
+    </div>
+</div>
+

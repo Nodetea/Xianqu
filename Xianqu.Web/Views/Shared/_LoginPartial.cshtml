@@ -1,4 +1,7 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@{ 
+    
+}
+@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,9 +10,12 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a href="@Url.Action("Index","Manage")" title="Manage" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"> 你好，@User.Identity.GetUserName()!</span><span class="caret"></span></a>
+            <a href="#" title="下拉" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"> 你好，@User.Identity.GetUserName()!</span><span class="caret"></span></a>
+            @*<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" role="button" id="DropDownMenu1" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-user"> 你好，@User.Identity.GetUserName()!</span></button>*@
             <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="#">账号管理</a></li>
+                <li><a href="@Url.Action("Index","Manage")">账号管理</a></li>
+                <li><a href="@Url.Action("EntryWare","WareManage")">发布闲置</a></li>
+                <li><a href="@Url.Action("OrderHand","WareManage")">订单处理</a></li>
                 <li><a href="#">交易记录</a></li>
                 <li><a href="javascript:document.getElementById('logoutForm').submit()">退出</a></li>
             </ul>

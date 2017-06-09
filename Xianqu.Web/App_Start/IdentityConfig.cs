@@ -106,4 +106,15 @@ namespace Xianqu.Web
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
+    //配置此应用程序中使用的应用程序角色管理器
+    public class ApplicationRoleManager:RoleManager<ApplicationRole>,IDisposable
+    {
+        public ApplicationRoleManager(IRoleStore<ApplicationRole,string> store):base(store) { }
+
+        public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options,IOwinContext context)
+        {
+            return new ApplicationRoleManager(new RoleStore<ApplicationRole>(context.Get<ApplicationDbContext>()));
+        }
+    }
 }

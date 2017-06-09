@@ -60,8 +60,7 @@ namespace Xianqu.Web.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Login
+        
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -74,7 +73,7 @@ namespace Xianqu.Web.Controllers
 
             // 这不会计入到为执行帐户锁定而统计的登录失败次数中
             // 若要在多次输入错误密码的情况下触发帐户锁定，请更改为 shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -150,10 +149,17 @@ namespace Xianqu.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                var currectuser = await UserManager.FindByNameAsync(user.UserName);
+                var roleresult = await UserManager.AddToRoleAsync(currectuser.Id, model.UserRole);
                 if (result.Succeeded)
                 {
+                   
+                    if (!roleresult.Succeeded)
+                    {
+                        return View("error", roleresult.Errors);
+                    }
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // 有关如何启用帐户确认和密码重置的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=320771
@@ -164,6 +170,7 @@ namespace Xianqu.Web.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+
                 AddErrors(result);
             }
 
@@ -398,6 +405,11 @@ namespace Xianqu.Web.Controllers
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
+        {
+            return View();
+        }
+
+        public ActionResult Pay()
         {
             return View();
         }

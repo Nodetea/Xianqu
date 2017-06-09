@@ -7,13 +7,13 @@ namespace Xianqu.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddCloumnSexAndBirthDate : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCloumnSexAndBirthDate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703071807538_AddCloumnSexAndBirthDate"; }
+            get { return "201703100550495_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

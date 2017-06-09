@@ -1,0 +1,43 @@
+﻿@model Xianqu.Web.Models.PersonalProfileViewModel
+@using Microsoft.AspNet.Identity
+<h1>基本资料</h1>
+@using (Html.BeginForm("PersonalProfile","Manage",FormMethod.Post,new { ReturnUrl=ViewBag.ReturnUrl,id="personalprofile"}))
+{
+    @Html.AntiForgeryToken()
+    <dl class="form-group">
+        <dt>
+            @Html.LabelFor(m=>m.UserName,new { @class="control-label"})
+        </dt>
+        <dd>
+            @Html.TextBoxFor(m => m.UserName, new { @class="form-control",@type="text"})
+        </dd>
+    </dl>
+    <dl class="form-group">
+        <dt>
+            @Html.LabelFor(m=>m.UserSex,new { @class="control-lable"})
+        </dt>
+        <dd>
+            @Html.TextBoxFor(m => m.UserSex, new { @class="form-control",@type="text"})
+        </dd>
+    </dl>
+    <dl class="form-group">
+        <dt>
+            @Html.LabelFor(m => m.BirthDate, new { @class = "control-lable" })
+        </dt>
+        <dd>          
+            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", type = "text" })
+        </dd>
+    </dl>
+
+    <dl class="form-group">
+        <dt>
+            @Html.LabelFor(m => m.Email, new { @class="control-lable"})
+        </dt>
+        <dd>
+            @Html.TextBoxFor(m=>m.Email,new { @class="form-control",type="text"})
+        </dd>
+    </dl>
+
+    
+}
+

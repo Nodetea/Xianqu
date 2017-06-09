@@ -19,11 +19,6 @@ namespace Xianqu.Web.Controllers
             return View();
         }
 
-       public ActionResult Tutorial( ) {
-            ViewBag.Message="这是教程";
-            return View();
-        }
-
-        //public ActionResult
+       
     }
 }
